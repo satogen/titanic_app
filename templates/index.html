@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block subtitle %}
+<p class="lead">
+  タイタニック号の生存者の法則性を探るウェブアプリです。<br>
+  以下の入力フォームに任意の値を入れ、送信すると「生存」したか「死亡」したかを判定してくれます。<br>
+  様々な値を入れ、どのような人が生き残ることができたのか？推測してみましょう。<br>
+  ※精度は、85%ほどになります。
+</p>
+{% endblock %}
+
+{% block content %}
+<form action="/" method="POST" class="container">
+  <fieldset class="form-group row">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">シートクラス</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name='pclass' id="gridRadios1" value="1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            {{ value_list.pclass[0] }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name='pclass' id="gridRadios2" value="2">
+          <label class="form-check-label" for="gridRadios2">
+            {{ value_list.pclass[1] }}
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <input class="form-check-input" type="radio" name='pclass' id="gridRadios3" value="3">
+          <label class="form-check-label" for="gridRadios3">
+            {{ value_list.pclass[2] }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-sm-2 text_center">歳</label>
+    <select class="form-control col-sm-10" id="exampleFormControlSelect1" name="age">
+      <script>
+        var i;
+        for(i=0; i<100; i+=1){
+        document.write('<option value="'+i+'">'+i+'歳</option>');
+        }
+      </script>
+    </select>
+  </div>
+  <fieldset class="form-group row">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">性別</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sex" id="gridRadios1" value="0" checked>
+          <label class="form-check-label" for="gridRadios1">
+            {{ value_list.sex[0] }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sex" id="gridRadios2" value="1">
+          <label class="form-check-label" for="gridRadios2">
+            {{ value_list.sex[1] }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class="form-group row">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">出港地</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="embarked" id="gridRadios2" value="0">
+          <label class="form-check-label" for="gridRadios2">
+            {{ value_list.embarked[0] }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="embarked" id="gridRadios1" value="1" checked>
+          <label class="form-check-label" for="gridRadios1">
+            {{ value_list.embarked[1] }}
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="embarked" id="gridRadios2" value="2">
+          <label class="form-check-label" for="gridRadios2">
+            {{ value_list.embarked[2] }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-sm-2 text_center">料金</label>
+    <select class="form-control col-sm-10" id="exampleFormControlSelect1" name="fare">
+      <script>
+        var i;
+        for(i=10; i<550; i+=10){
+        document.write('<option value="'+i+'">'+i+'$</option>');
+        }
+      </script>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-sm-2 text_center">家族数</label>
+    <select class="form-control col-sm-10" id="exampleFormControlSelect1" name="familysize">
+      <script>
+        var i;
+        for(i=1; i<20; i+=1){
+        document.write('<option value="'+i+'">'+i+'人</option>');
+        }
+      </script>
+    </select>
+  </div>
+  <div class="form-group row">
+    <div class="submit_form">
+      <button type="submit" class="btn btn-primary form_submit_btn">送信</button>
+    </div>
+  </div>
+</form>
+  {% endblock %}
