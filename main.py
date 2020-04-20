@@ -37,5 +37,3 @@ def result():
 if __name__ == "__main__":
     app.run(debug=True)
 
-    # test_features = test_two[["Pclass", "Age", "Sex", "Fare", "family_size", "Embarked"]].values
-
