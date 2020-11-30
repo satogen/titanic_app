@@ -27,13 +27,22 @@ def result():
     post_array["fare"] = request.form["fare"]
     post_array["family_size"] = request.form["familysize"]
     post_array["embarked"] = int(request.form["embarked"])
+
     # 予測するためにNumpy配列に変換
-    predict_array = np.array([[post_array["pclass"], post_array["age"], post_array["sex"],
-                               post_array["fare"], post_array["family_size"], post_array["embarked"]]])
+    predict_array = np.array([[
+        post_array["pclass"],
+        post_array["age"],
+        post_array["sex"],
+        post_array["fare"],
+        post_array["family_size"],
+        post_array["embarked"]]])
+
     # 学習済みモデルを呼び出し
     forest = pickle.load(open('trained_model.pkl', 'rb'))
+
     # 学習済みモデルで予測
     predict = forest.predict(predict_array)
+
     # 学習結果を出力
     if predict == 1:
         result = "生存"
