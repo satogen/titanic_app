@@ -26,3 +26,11 @@ $ python main.py
 ```
 http://localhost:5000/
 ```
+
+下記画像が表示で成功
+<img width="1440" alt="スクリーンショット 2020-11-30 23 19 26" src="https://user-images.githubusercontent.com/52241287/100621815-77d29380-3363-11eb-86fe-6bc3242533f5.png">
+
+## 参照元データ
+
+Titanic: Machine Learning from Disaster  
+https://www.kaggle.com/c/titanic
